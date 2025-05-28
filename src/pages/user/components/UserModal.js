@@ -67,7 +67,6 @@ const UserModal = ({
   };
 
   useEffect(() => {
-    console.log(visible, record);
     times++;
 
     if (visible && record) {
@@ -79,7 +78,6 @@ const UserModal = ({
       };
       modalForm.setFieldsValue(formValues);
     } else {
-      console.log(times);
       times > 1 && modalForm.resetFields();
     }
   }, [visible, record, modalForm]);

@@ -4,8 +4,6 @@ import * as Icons from "@ant-design/icons";
 import "./home.css";
 import { getHomeData } from "../../api";
 
-import * as echarts from "echarts";
-
 import Echarts from "../../components/echarts";
 
 const columns = [
@@ -73,7 +71,6 @@ const Home = () => {
   useEffect(() => {
     const handleGetHomeData = async () => {
       const res = await getHomeData();
-      console.log(res.data.data);
       setTableData(res.data.data.tableData);
       setChartData(res.data.data);
     };

@@ -24,7 +24,6 @@ const Login = () => {
         message.warning("请输入账号和密码");
         return;
       }
-      console.log(values);
       setLoading(true);
       const { data } = await getMenu(values);
       local.set("token", data.data.token, 7200);

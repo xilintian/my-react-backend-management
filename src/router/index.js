@@ -69,9 +69,7 @@ const baseRoutes = [
 // 创建路由
 const createRoutes = (menuData) => {
   const dynamicRoutes = generateRoutes(menuData);
-  console.log("dynamicRoutes", dynamicRoutes);
   baseRoutes[0].children.push(...dynamicRoutes);
-  console.log("baseRoutes", baseRoutes);
   return createBrowserRouter(baseRoutes);
 };
 

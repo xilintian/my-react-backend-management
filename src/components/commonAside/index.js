@@ -44,8 +44,6 @@ const CommonAside = ({ isCollapse, tags }) => {
   // 从 Redux 获取菜单数据
   const menuData = useSelector((state) => state.permission.menu);
 
-  console.log('menuData', menuData);
-
   // 使用 useMemo 缓存菜单项，避免重复计算
   const menuItems = useMemo(() => getMenuItems(menuData), [menuData]);
 

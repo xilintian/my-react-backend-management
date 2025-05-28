@@ -13,8 +13,6 @@ const Main = () => {
   const isCollapse = useSelector((state) => state.tab.isCollapse);
   const tags = useSelector((state) => state.tag.tags);
 
-  console.log("tags", tags);
-
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();

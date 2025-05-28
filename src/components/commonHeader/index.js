@@ -16,7 +16,6 @@ const CommonHeader = ({ isCollapse }) => {
   const navigate = useNavigate();
 
   const logout = () => {
-    console.log("退出");
     local.clear();
     session.clear();
     dispatch(setToken(""));

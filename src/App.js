@@ -6,9 +6,7 @@ import "./App.css";
 
 function App() {
   const menuData = useSelector((state) => state.permission.menu);
-  console.log('menuData', menuData);
   const routes = createRoutes(menuData);
-
   return <RouterProvider router={routes} />;
 }
 
