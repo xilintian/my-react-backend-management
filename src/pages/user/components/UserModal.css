@@ -1,0 +1,10 @@
+.user-modal .ant-modal-body {
+  padding: 10px 20px;
+}
+
+.user-modal .ant-modal-footer {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

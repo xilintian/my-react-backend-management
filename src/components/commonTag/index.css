@@ -1,0 +1,26 @@
+.common-tag {
+  padding: 15px 20px 0 20px;
+}
+
+.common-tag .close-tag {
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.common-tag .close-tag.active {
+  border-color: #1890ff;
+  background-color: #1890ff;
+  color: #fff;
+}
+.common-tag .close-tag.active .anticon-close {
+  color: #fff;
+}
