@@ -40,7 +40,7 @@ const CommonAside = ({ isCollapse, tags }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [openKeys, setOpenKeys] = useState([]);
-  
+
   // 从 Redux 获取菜单数据
   const menuData = useSelector((state) => state.permission.menu);
 
@@ -113,4 +113,4 @@ const CommonAside = ({ isCollapse, tags }) => {
   );
 };
 
-export default CommonAside;
+export default React.memo(CommonAside);

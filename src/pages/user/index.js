@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Form, Input, Table, message, Popconfirm } from "antd";
 import {
   getUserList,
@@ -10,6 +10,8 @@ import {
 import UserModal from "./components/UserModal";
 
 const User = () => {
+  const modalRef = useRef();
+
   const [userList, setUserList] = useState([]);
   const [pagination, setPagination] = useState({
     page: 1,
@@ -140,7 +142,13 @@ const User = () => {
       messageApi.error(currentRecord ? "编辑失败" : "新增失败");
     } finally {
       setConfirmLoading(false);
+      modalRef.current.handleResetForm();
     }
+  };
+
+  const handleCancel = () => {
+    setModalVisible(false);
+    modalRef.current.handleResetForm();
   };
 
   const getUserListData = async (params = null) => {
@@ -205,10 +213,11 @@ const User = () => {
         />
       </div>
       <UserModal
+        ref={modalRef}
         visible={modalVisible}
         confirmLoading={confirmLoading}
         modalLoading={modalLoading}
-        onCancel={() => setModalVisible(false)}
+        onCancel={handleCancel}
         onOk={handleModalOk}
         record={currentRecord}
       />

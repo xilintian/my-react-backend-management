@@ -6,6 +6,7 @@ const tagSlice = createSlice({
   name: "tag",
   initialState: {
     tags: JSON.parse(sessionStorage.getItem("tags")) || [...defaultTags],
+    refresh: 0,
   },
   reducers: {
     addTag: (state, action) => {
@@ -21,14 +22,21 @@ const tagSlice = createSlice({
     },
     clearTags: (state, action) => {
       state.tags = [...defaultTags];
+      sessionStorage.setItem("tags", JSON.stringify(state.tags));
+    },
+    removeOtherTags: (state, action) => {
+      state.tags = [
+        ...defaultTags,
+        ...state.tags.filter((tag) => tag.path === action.payload),
+      ];
+      sessionStorage.setItem("tags", JSON.stringify(state.tags));
+    },
+    refresh: (state, action) => {
+      state.refresh = state.refresh + 1;
     },
   },
 });
 
-const {
-  actions: { addTag, removeTag, clearTags },
-  reducer,
-} = tagSlice;
-
-export { addTag, removeTag, clearTags };
-export default reducer;
+export const { addTag, removeTag, clearTags, removeOtherTags, refresh } =
+  tagSlice.actions;
+export default tagSlice.reducer;

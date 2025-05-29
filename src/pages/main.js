@@ -12,6 +12,7 @@ const { Content } = Layout;
 const Main = () => {
   const isCollapse = useSelector((state) => state.tab.isCollapse);
   const tags = useSelector((state) => state.tag.tags);
+  const refresh = useSelector((state) => state.tag.refresh);
 
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -33,7 +34,7 @@ const Main = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            <Outlet />
+            <Outlet key={refresh} />
           </Content>
         </Layout>
       </Layout>
